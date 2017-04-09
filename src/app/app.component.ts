@@ -32,7 +32,7 @@ export class AppComponent {
   removeTodo(todo) {
     this.todoDataService.deleteTodoById(todo.id);
   }
-
+  // In outer code this is seen as a prop, not method
   get todos() {
     return this.todoDataService.getAllTodos();
   }
