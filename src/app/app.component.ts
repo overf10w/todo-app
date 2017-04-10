@@ -9,6 +9,8 @@ import { Todo } from "app/todo";
   styleUrls: ['./app.component.css'],
   providers: [TodoDataService]
 })
+// Smart component. Knows about TodoDataService
+// Handles events emitted by TodoListHeaderComponet, TodoListComponent
 export class AppComponent {
 
   // No longer needed, now handled by TodoListHeaderComponent
@@ -28,18 +30,23 @@ export class AppComponent {
   //   this.newTodo = new Todo();
   // }
 
-  // Add new method to handle event emitted by TodoListHeaderComponent
+  // Method to handle event emitted by TodoListHeaderComponent
   onAddTodo(todo: Todo) {
     this.todoDataService.addTodo(todo);
   }
 
-  toggleTodoComplete(todo) {
+  // rename from toggleTodoComplete
+  // called when TodoListComponent's toggleComplete event emitted 
+  onToggleTodoComplete(todo) {
     this.todoDataService.toggleTodoComplete(todo);
   }
 
-  removeTodo(todo) {
+  // rename from removeTodo
+  // called when TodoListComponent's remove event emitted
+  onRemoveTodo(todo) {
     this.todoDataService.deleteTodoById(todo.id);
   }
+
   // In outer code this is seen as a prop, not method
   get todos() {
     return this.todoDataService.getAllTodos();

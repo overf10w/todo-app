@@ -6,11 +6,13 @@ import { Todo } from '../todo';
   templateUrl: './todo-list-header.component.html',
   styleUrls: ['./todo-list-header.component.css']
 })
+// Dumb component. Does not know about TodoDataService
+// Emits events (that are handled by AppComponent)
 export class TodoListHeaderComponent {
-
+  // add's event payload (can (SHOULD) be accessed in handlers via $event arg.)
   newTodo: Todo = new Todo();
 
-  // Event emitted by TodoListHeaderComponent
+  // This event is handled by AppComponent
   @Output() 
   add: EventEmitter<Todo> = new EventEmitter();
   
