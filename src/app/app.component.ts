@@ -11,7 +11,8 @@ import { Todo } from "app/todo";
 })
 export class AppComponent {
 
-  newTodo: Todo = new Todo();
+  // No longer needed, now handled by TodoListHeaderComponent
+  // newTodo: Todo = new Todo();
   
   // Ask angular DI system to inject the dependency
   // associated with the dependency injection token 'TodoDataService'
@@ -20,9 +21,16 @@ export class AppComponent {
   
   // In this class we delegate all business logic to todoDataService
   // This makes testing a lot easier
-  addTodo() {
-    this.todoDataService.addTodo(this.newTodo);
-    this.newTodo = new Todo();
+
+  // No longer needed, now handled by TodoListHeaderComponent
+  // addTodo() {
+  //   this.todoDataService.addTodo(this.newTodo);
+  //   this.newTodo = new Todo();
+  // }
+
+  // Add new method to handle event emitted by TodoListHeaderComponent
+  onAddTodo(todo: Todo) {
+    this.todoDataService.addTodo(todo);
   }
 
   toggleTodoComplete(todo) {
