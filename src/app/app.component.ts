@@ -7,7 +7,6 @@ import { Todo } from "app/todo";
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [TodoDataService]
 })
 // Smart component. Knows about TodoDataService
 // Handles events emitted by TodoListHeaderComponet, TodoListComponent
